@@ -23,6 +23,45 @@
         e.preventDefault();
       }
     });
+
+          let devtoolsOpen = false;
+  const threshold = 160;
+
+  function detectDevTools() {
+    const widthDiff = window.outerWidth - window.innerWidth > threshold;
+    const heightDiff = window.outerHeight - window.innerHeight > threshold;
+    if (widthDiff || heightDiff) {
+      // DevTools probably opened
+      devtoolsOpen = true;
+      return true;
+    }
+    return false;
+  }
+
+  window.addEventListener('resize', () => {
+    if (detectDevTools()) {
+      try {
+        // Attempt to close window or redirect
+        window.open('', '_self');  // in some browsers this helps allow close
+        window.close();
+      } catch (err) {
+        // fallback: redirect away
+        window.location.href = 'about:blank';
+      }
+    }
+  });
+
+  // Also check periodically
+  setInterval(() => {
+    if (detectDevTools()) {
+      try {
+        window.open('', '_self');
+        window.close();
+      } catch (err) {
+        window.location.href = 'about:blank';
+      }
+    }
+  }, 1000);
     </script>
     <style>
         html, body {
