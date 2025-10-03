@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CipherScript</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+    document.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+    });
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "F12") {
+        e.preventDefault();
+      }
+      if (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key.toUpperCase())) {
+        e.preventDefault();
+      }
+      if (e.ctrlKey && e.key.toUpperCase() === "U") {
+        e.preventDefault();
+      }
+      if (e.ctrlKey && e.key.toUpperCase() === "S") {
+        e.preventDefault();
+      }
+    });
+    </script>
+</head>
+<body oncontextmenu="return false;">
+    <div id="main">
+        <center>
+            <div id="content">
+
+                <h1>CipherScript</h1>
+                <h5>CipherScript Programming Language</h5>
+                <p>This is my new project named CipherScript, its based on Python and haves its custom file extension <b>.cycl</b></p>
+                <p>I dont have any other thing to say so, download it from here:</p>
+
+            </div>
+        
+            <div id="button">
+                <footer>
+                    <a href="https://github.com/jzadpy/CipherScript/"><button>Download on GitHub!</button></a>
+                </footer>
+            </div>
+        </center>
+    </div>
+</body>
+</html>
